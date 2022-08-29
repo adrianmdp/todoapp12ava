@@ -3,7 +3,7 @@ import { LoginType } from "./types";
 
 const Login = () => {
   const handleSubmit = (formData: LoginType) => {
-    console.log(formData);
+    // TODO
   };
 
   return (
