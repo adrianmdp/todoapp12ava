@@ -1,0 +1,22 @@
+.page-signup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+   
+    
+    .form-add-user {
+        background-color: #EEE;
+        width: 90%;
+        max-width: 600px;
+        display: flex;       
+        flex-direction: column;
+        margin: auto;
+        padding: 20px;
+
+
+        .form-control {
+            margin-bottom: 20px;
+        }
+    }
+}

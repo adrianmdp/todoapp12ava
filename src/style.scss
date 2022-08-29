@@ -1,0 +1,38 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html, body, #root, .app {
+    min-height: 100vh;
+}
+
+body {
+    margin: 0;
+    
+    .app {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.main {
+    height: 100%;
+}
+
+.footer {
+    margin-top: auto;
+}
+
+/**
+estilos temporales
+*/
+
+.header, .footer {
+    height: 100px;
+    background-color: lightskyblue;
+}
+
+.primary-nav {
+    height: 70px;
+    background-color: indianred;
+}
