@@ -3,7 +3,7 @@ export type User = {
   name: string;
   email: string;
   pass?: string;
-  sessionToken?: string;
+  sessionToken?: string | null;
 };
 
 export type UserPayload = Omit<User, "id"> & { pass: string };

@@ -3,7 +3,7 @@ import { useAuth } from "../../hooks/useAuth";
 import { LoginFormType } from "../../types";
 
 const Login = () => {
-  const { login } = useAuth();
+  const { login, logout } = useAuth();
 
   const handleSubmit = (formData: LoginFormType) => {
     login(formData);
@@ -11,6 +11,7 @@ const Login = () => {
 
   return (
     <Layout hideNav page="login">
+      <button onClick={logout}>Cerrar sesión</button>
       <LoginForm onSubmit={handleSubmit} />
     </Layout>
   );
