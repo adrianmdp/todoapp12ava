@@ -1,11 +1,11 @@
 import { FC, useState } from "react";
-import { LoginType } from "../../../pages/Login/types";
+import { LoginFormType } from "../../../types";
 
 type Props = {
-  onSubmit: (formData: LoginType) => void;
+  onSubmit: (formData: LoginFormType) => void;
 };
 
-const inicialData: LoginType = {
+const inicialData: LoginFormType = {
   email: "",
   pass: "",
 };
