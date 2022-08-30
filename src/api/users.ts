@@ -1,5 +1,5 @@
 import { mapToArray } from "../helpers";
-import { UserPayload } from "../types";
+import { User, UserPayload } from "../types";
 
 const add = (user: UserPayload) => {
   const options: RequestInit = {
@@ -10,7 +10,7 @@ const add = (user: UserPayload) => {
   fetch("https://ava-9f390-default-rtdb.firebaseio.com/users.json", options);
 };
 
-const getAll = async () => {
+const getAll = async (): Promise<User[]> => {
   const response = await fetch(
     "https://ava-9f390-default-rtdb.firebaseio.com/users.json"
   );
@@ -30,6 +30,20 @@ const get = async (id: string) => {
 
 const remove = () => {};
 
-const update = () => {};
+const patch = async (id: string, payload: Partial<User>) => {
+  const options: RequestInit = {
+    method: "PATCH",
+    body: JSON.stringify(payload),
+  };
 
-export const usersApi = { add, getAll, get, remove, update };
+  const response = await fetch(
+    `https://ava-9f390-default-rtdb.firebaseio.com/users/${id}.json`,
+    options
+  );
+
+  const data = await response.json();
+
+  return data;
+};
+
+export const usersApi = { add, getAll, get, remove, patch };
