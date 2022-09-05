@@ -19,6 +19,7 @@ import "./style.scss";
 import { Test } from "./Test";
 import { Test2 } from "./Test2";
 import { PruebaProvider, Prueba2Provider } from "./contexts";
+import { AuthProvider } from "./contexts/auth";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -26,29 +27,30 @@ const root = ReactDOM.createRoot(
 root.render(
   <PruebaProvider>
     <Prueba2Provider>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Outlet />}>
-            <Route index element={<Home />} />
-            <Route path="test" element={<Test />} />
-            <Route path="test2" element={<Test2 />} />
+      <AuthProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Outlet />}>
+              <Route index element={<Home />} />
+              <Route path="test" element={<Test />} />
+              <Route path="test2" element={<Test2 />} />
 
-            <Route path="login" element={<Login />} />
-            <Route path="signup" element={<SignUp />} />
+              <Route path="login" element={<Login />} />
+              <Route path="signup" element={<SignUp />} />
 
-            <Route path="users" element={<Users />} />
+              <Route path="users" element={<Users />} />
 
-            <Route path="inhabitants" element={<Outlet />}>
-              <Route index element={<Inhabitants />} />
-              <Route path=":id" element={<Inhabitant />} />
-              <Route path="save" element={<SaveInhabitant />} />
-              <Route path="save/:id" element={<SaveInhabitant />} />
+              <Route path="inhabitants" element={<Outlet />}>
+                <Route index element={<Inhabitants />} />
+                <Route path=":id" element={<Inhabitant />} />
+                <Route path="save" element={<SaveInhabitant />} />
+                <Route path="save/:id" element={<SaveInhabitant />} />
+              </Route>
+
+              <Route path="admin" element={<Admin />} />
             </Route>
 
-            <Route path="admin" element={<Admin />} />
-          </Route>
-
-          {/* <Route path="/" element={<App />}>
+            {/* <Route path="/" element={<App />}>
             <Route index element={<Home />} />
             <Route path="teams" element={<Teams />}>
               <Route path=":teamId" element={<Team />} />
@@ -56,8 +58,9 @@ root.render(
               <Route index element={<LeagueStandings />} />
             </Route>
           </Route> */}
-        </Routes>
-      </BrowserRouter>
+          </Routes>
+        </BrowserRouter>
+      </AuthProvider>
     </Prueba2Provider>
   </PruebaProvider>
 );
