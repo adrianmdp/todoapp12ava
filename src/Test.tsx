@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "./hooks/useAuth";
 import { useOtherHook } from "./hooks/useOtherHook";
 
 const Test = () => {
@@ -8,6 +9,8 @@ const Test = () => {
   const [pass, setPass] = useState("");
 
   const { state1 } = useOtherHook();
+
+  const { logout } = useAuth();
 
   const navigate = useNavigate();
 
@@ -37,6 +40,7 @@ const Test = () => {
       >
         Set Nombre
       </button>
+      <button onClick={logout}>Cerrar sesión</button>
     </div>
   );
 };

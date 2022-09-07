@@ -1,9 +1,10 @@
 import { Layout, Login as LoginForm } from "../../components";
+import { withAuth } from "../../hoc";
 import { useAuth } from "../../hooks/useAuth";
 import { LoginFormType } from "../../types";
 
-const Login = () => {
-  const { login, logout } = useAuth();
+const LoginPage = () => {
+  const { login } = useAuth();
 
   const handleSubmit = (formData: LoginFormType) => {
     login(formData);
@@ -11,10 +12,9 @@ const Login = () => {
 
   return (
     <Layout hideNav page="login">
-      <button onClick={logout}>Cerrar sesión</button>
       <LoginForm onSubmit={handleSubmit} />
     </Layout>
   );
 };
 
-export { Login };
+export const Login = withAuth(LoginPage);

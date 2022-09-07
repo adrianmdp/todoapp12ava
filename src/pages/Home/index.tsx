@@ -1,10 +1,11 @@
 import { useContext } from "react";
 import { Layout } from "../../components";
 import { Prueba2Context } from "../../contexts";
+import { withAuth } from "../../hoc";
 import { Test } from "../../Test";
 import { Test2 } from "../../Test2";
 
-const Home = () => {
+const HomePage = () => {
   const myContext = useContext(Prueba2Context);
 
   console.log(myContext);
@@ -25,4 +26,4 @@ const Home = () => {
   );
 };
 
-export { Home };
+export const Home = withAuth(HomePage);
