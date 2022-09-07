@@ -1,9 +1,13 @@
 import { Layout } from "../../components";
 
 const Contact = () => {
+  const handleSubmit = () => {
+    // Acá enviamos el formulario a la api
+  };
+
   return (
     <Layout>
-      <form action="">
+      <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="">Nombre</label>
           <input type="text" name="name" />
