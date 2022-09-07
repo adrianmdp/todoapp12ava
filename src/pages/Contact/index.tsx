@@ -13,8 +13,8 @@ const Contact = () => {
           <input type="email" name="email" />
         </div>
         <div>
-          <label htmlFor="">Mensaje</label>
-          <textarea name="mensaje"></textarea>
+          <label htmlFor="">Foto</label>
+          <input type="file" name="foto" />
         </div>
         <button type="submit">Enviar</button>
       </form>
