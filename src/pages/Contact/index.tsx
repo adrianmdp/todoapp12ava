@@ -9,12 +9,12 @@ const Contact = () => {
     <Layout>
       <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="">Nombre</label>
-          <input type="text" name="name" />
-        </div>
-        <div>
           <label htmlFor="">Email</label>
           <input type="email" name="email" />
+        </div>
+        <div>
+          <label htmlFor=""></label>
+          <input type="text" name="asunto" />
         </div>
         <div>
           <label htmlFor="">Mensaje</label>
