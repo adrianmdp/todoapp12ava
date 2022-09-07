@@ -17,8 +17,8 @@ const Contact = () => {
           <input type="text" name="asunto" />
         </div>
         <div>
-          <label htmlFor="">Mensaje</label>
-          <textarea name="mensaje"></textarea>
+          <label htmlFor="">Foto</label>
+          <input type="file" name="foto" />
         </div>
         <button type="submit">Enviar</button>
       </form>
