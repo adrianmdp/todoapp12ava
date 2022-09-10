@@ -6,11 +6,11 @@ const useOtherHook = () => {
   const [state3, setState3] = useState();
 
   useEffect(() => {
-    console.log("Primer useEffect");
+    // console.log("Primer useEffect");
   }, []);
 
   useEffect(() => {
-    console.log("Segundo useEffect");
+    // console.log("Segundo useEffect");
   }, [state1]);
 
   const fx1 = (value: string) => {

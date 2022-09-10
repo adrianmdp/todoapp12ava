@@ -23,6 +23,8 @@ const useAuth = () => {
       (user) => user.email === email && user.pass === pass
     );
 
+    console.log(users, logged);
+
     if (logged) {
       const token = await setUserToken(logged.id);
 

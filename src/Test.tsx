@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Layout } from "./components";
 import { useAuth } from "./hooks/useAuth";
 import { useOtherHook } from "./hooks/useOtherHook";
 
@@ -15,7 +16,7 @@ const Test = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    console.log("useEffect en el componente");
+    // console.log("useEffect en el componente");
   }, [name]);
 
   const func1 = () => {
@@ -27,21 +28,23 @@ const Test = () => {
   };
 
   return (
-    <div>
-      Hola Mundo
-      <button onClick={() => navigate("/test2")}>Ir a test 2</button>
-      <hr />
-      <h1>{name}</h1>
-      <h2>{state1}</h2>
-      <button
-        onClick={() => {
-          setName("Adrián");
-        }}
-      >
-        Set Nombre
-      </button>
-      <button onClick={logout}>Cerrar sesión</button>
-    </div>
+    <>
+      <Layout hideFooter page="test">
+        Hola Mundo
+        <button onClick={() => navigate("/test2")}>Ir a test 2</button>
+        <hr />
+        <h1>{name}</h1>
+        <h2>{state1}</h2>
+        <button
+          onClick={() => {
+            setName("Adrián");
+          }}
+        >
+          Set Nombre
+        </button>
+        <button onClick={logout}>Cerrar sesión</button>
+      </Layout>
+    </>
   );
 };
 

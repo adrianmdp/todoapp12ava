@@ -1,54 +1,56 @@
-import { FC, useState } from "react";
+import { FC } from "react";
+import { useForm } from "react-hook-form";
 import { LoginFormType } from "../../../types";
+import { Form, Alert, Button } from "react-bootstrap";
+
+import { yupResolver } from "@hookform/resolvers/yup";
+import { validationSchema } from "./validationSchema";
+import { defaultValues } from "./defaultValues";
 
 type Props = {
-  onSubmit: (formData: LoginFormType) => void;
+  onLogin: (formData: LoginFormType) => void;
+  className?: string;
 };
 
-const inicialData: LoginFormType = {
-  email: "",
-  pass: "",
-};
-
-const Login: FC<Props> = ({ onSubmit }) => {
-  const [formData, setFormData] = useState(inicialData);
+const Login: FC<Props> = ({ onLogin, className }) => {
+  const { register, handleSubmit, formState } = useForm<LoginFormType>({
+    resolver: yupResolver(validationSchema),
+    defaultValues,
+  });
 
   return (
     <form
-      onSubmit={(e) => {
-        e.preventDefault();
-        onSubmit(formData);
-      }}
+      onSubmit={handleSubmit(onLogin)}
+      className={`form-login ${className}`}
     >
       <div>
         <label htmlFor=""></label>
-        <input
+        <Form.Control
           type="email"
-          name="email"
-          value={formData.email}
-          onChange={(e) => {
-            setFormData((prevState) => ({
-              ...prevState,
-              email: e.target.value,
-            }));
-          }}
+          placeholder="Ingresar email"
+          {...register("email")}
         />
+
+        <br />
+        {formState.errors.email && (
+          <Alert variant="danger">{formState.errors.email?.message}</Alert>
+        )}
       </div>
       <div>
         <label htmlFor=""></label>
-        <input
+        <Form.Control
           type="password"
-          name="pass"
-          value={formData.pass}
-          onChange={(e) => {
-            setFormData((prevState) => ({
-              ...prevState,
-              pass: e.target.value,
-            }));
-          }}
+          placeholder="Ingresar email"
+          {...register("pass")}
         />
+        <br />
+        {formState.errors.pass && (
+          <Alert variant="danger">{formState.errors.pass?.message}</Alert>
+        )}
       </div>
-      <button type="submit">Iniciar sesión</button>
+      <Button type="submit" variant="primary">
+        Enviar
+      </Button>
     </form>
   );
 };

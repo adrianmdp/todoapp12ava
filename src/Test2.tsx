@@ -11,7 +11,7 @@ const Test2 = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    console.log("useEffect en el test 2");
+    // console.log("useEffect en el test 2");
   }, [name]);
 
   const func1 = () => {

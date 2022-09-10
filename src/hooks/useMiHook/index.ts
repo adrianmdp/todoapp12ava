@@ -4,7 +4,7 @@ const useMiHook = () => {
   const [status, setStatus] = useState<"active" | "inactive">("active");
 
   useEffect(() => {
-    console.log("useEffect dentro de hook");
+    // console.log("useEffect dentro de hook");
   }, [status]);
 
   const updateStatus = (value: "active" | "inactive") => {
