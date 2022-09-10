@@ -16,7 +16,7 @@ const SaveInhabitant = () => {
   const [inhabitant, setInhabitant] = useState<Inhabitant>(initialData);
 
   useEffect(() => {
-    console.log(inhabitant);
+    // console.log(inhabitant);
   }, [inhabitant]);
 
   // useEffect(() => {

@@ -21,6 +21,8 @@ import { Test2 } from "./Test2";
 import { PruebaProvider, Prueba2Provider } from "./contexts";
 import { AuthProvider } from "./contexts/auth";
 
+import "bootstrap/dist/css/bootstrap.min.css";
+
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );

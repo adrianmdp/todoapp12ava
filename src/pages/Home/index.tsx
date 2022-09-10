@@ -8,7 +8,7 @@ import { Test2 } from "../../Test2";
 const HomePage = () => {
   const myContext = useContext(Prueba2Context);
 
-  console.log(myContext);
+  // console.log(myContext);
 
   return (
     <Layout>

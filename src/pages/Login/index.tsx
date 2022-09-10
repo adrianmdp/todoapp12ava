@@ -3,6 +3,8 @@ import { withAuth } from "../../hoc";
 import { useAuth } from "../../hooks/useAuth";
 import { LoginFormType } from "../../types";
 
+import "./styles.scss";
+
 const LoginPage = () => {
   const { login } = useAuth();
 
@@ -11,8 +13,8 @@ const LoginPage = () => {
   };
 
   return (
-    <Layout hideNav page="login">
-      <LoginForm onSubmit={handleSubmit} />
+    <Layout hideHeader hideNav hideFooter page="login">
+      <LoginForm onLogin={handleSubmit} />
     </Layout>
   );
 };
